@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+/Users/thomasporter/Desktop/Grand_Circus/Amazon_Bootcamp/Labs/Unit_2/2.4_methods_dice_roller/.metadata/.plugins/org.eclipse.jdt.core
+2458333808.index
+1865797976.index
+1816963510.index

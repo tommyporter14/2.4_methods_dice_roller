@@ -1,0 +1,81 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class methods_dice_roller {
+
+	public static void main(String[] args) 
+	{
+		Scanner	scnr = new Scanner(System.in);
+		
+		int rollCount = 1;
+		String userContinue = "y";
+		
+		System.out.println("Welcome to my dice roll game!");
+		System.out.println("How many sides should the die have?");
+		
+		if(scnr.hasNextInt())
+		{
+		int userNumber = Integer.parseInt(scnr.nextLine());
+		}
+		else 
+		{
+			System.out.println("Not a valid input, please enter a positive integer.");
+		}
+		while(userContinue.equalsIgnoreCase("y"))
+			{
+				//System.out.println("How many sides should the die have?");
+				//int userNumber = Integer.parseInt(scnr.nextLine());
+				
+				System.out.println("Roll " + rollCount);
+				int randomOne = (generateRandomDieRollMathClass(userNumber));
+				System.out.println(randomOne);
+				int randomTwo = (generateRandomDieRollRandomClass(userNumber));
+				System.out.println(randomTwo);
+				
+				int total = randomOne + randomTwo;
+				
+					if (rollCount == 1 && (total == 2 || total == 3 || total == 12))//conditions for crap out
+					{
+						System.out.println("You rolled Crap Out! Total: " + total);//print message plus total of rolls
+					}
+					else if (randomOne == 1 && randomTwo == 1)//condition for snake eyes
+					{
+						System.out.println("You rolled Snake Eyes! Total: " + total);// print message plus total of rolls
+					}
+					else if (randomOne == 6 && randomTwo == 6)//condition for box cars
+					{
+						System.out.println("You rolled Box Cars! Total: " + total);//prints message plug total of rolls
+					}
+					else
+					{
+						System.out.println("Total: " + total);//prints total of rolls
+					}
+					
+				System.out.println("Roll again? (y/n)");
+			
+				userContinue = scnr.nextLine();
+				
+				while(!(userContinue.equalsIgnoreCase("y") || userContinue.equalsIgnoreCase("n")))
+				{
+					System.out.println("Not a valid input. Please choose y to coninue or n to end");
+					userContinue = scnr.nextLine();
+				}
+			rollCount ++;
+			}
+		
+		scnr.close();
+	}
+
+	public static int generateRandomDieRollMathClass (int sidesChoice) 
+	{
+		int rollRandom1 = (int)((Math.random() * sidesChoice)+1);
+		return rollRandom1;
+		
+	}
+	public static int generateRandomDieRollRandomClass (int sidesChoice)
+	{
+		Random num = new Random();
+		int rollRandom2 = num.nextInt(sidesChoice) + 1;
+		return rollRandom2;
+	}
+}

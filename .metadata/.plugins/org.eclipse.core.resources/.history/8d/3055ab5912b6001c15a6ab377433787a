@@ -1,0 +1,25 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class methods_dice_roller {
+
+	public static void main(String[] args) 
+	{
+		Scanner	scnr = new Scanner(System.in);
+
+		System.out.println("Welcome to my dice roll game!");
+		System.out.println("How many sides should the die have?");
+		int userNumber = scnr.nextInt();
+		
+		System.out.println("Roll ");
+		System.out.println(generateRandomDieRoll(userNumber));
+		System.out.println(generateRandomDieRoll(userNumber));		
+	}
+
+	public static int generateRandomDieRoll (int sidesChoice) 
+	{
+		int rollRandom = (int)((Math.random() * sidesChoice)+1);
+		return rollRandom;
+		
+	}
+}
